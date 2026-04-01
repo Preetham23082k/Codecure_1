@@ -1,6 +1,5 @@
 # Tox21 Multi-Target Toxicity Prediction Pipeline
 
-> **Hackathon Submission** — Multi-label molecular toxicity classification across all 12 Tox21 nuclear receptor and stress-response endpoints using a deep, multi-layer feature engineering stack and an endpoint-aware adaptive ensemble strategy.
 
 ---
 
