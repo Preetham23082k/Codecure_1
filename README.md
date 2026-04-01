@@ -1,5 +1,23 @@
 # Tox21 Multi-Target Toxicity Prediction Pipeline
 
+> **Hackathon Submission** — Multi-label molecular toxicity classification across all 12 Tox21 nuclear receptor and stress-response endpoints using a deep, multi-layer feature engineering stack and an endpoint-aware adaptive ensemble strategy.
+
+---
+
+## 🚀 Live Dashboard
+
+**Try the interactive prediction system here:**
+
+### 👉 [https://codecure1-new.streamlit.app/](https://codecure1-new.streamlit.app/)
+
+The dashboard is a fully interactive **molecular toxicity prediction and analysis system** built with Streamlit. It includes:
+
+- **🔮 Prediction System** — Enter any SMILES string to instantly get toxicity predictions across all 12 Tox21 endpoints. Includes probability scores, decision thresholds, toxicity radar chart, structural alerts, and Lipinski drug-likeness analysis.
+- **📊 EDA & Dataset Explorer** — Visualise missing label distributions, class imbalance per endpoint, ring count distributions, and atom type frequency across the full Tox21 dataset.
+- **🏆 Model Performance** — Compare ensemble AUC vs XGBoost baseline per endpoint, view ROC curves for all 12 endpoints, and explore per-endpoint threshold optimisation and recall gains.
+- **🔬 Feature Importance** — Interactive global and per-endpoint feature importance analysis with category-level summaries across all 11 feature layers.
+- **🧬 Receptor Analysis** — Detailed biological context, known activators, decision threshold heatmap, and mechanism notes for each of the 12 Tox21 endpoints.
+- **🗺️ Multi-Assay Profile** — Co-toxicity correlation heatmap and compound-level multi-assay toxicity profiles for known reference compounds.
 
 ---
 
@@ -235,6 +253,8 @@ Example usage (within the notebook after training):
 result = predict_smiles("CC(=O)Oc1ccccc1C(=O)O")  # Aspirin
 ```
 
+You can also try predictions interactively via the **[live dashboard](https://codecure1-new.streamlit.app/)** without any local setup.
+
 ---
 
 ## Results & Outputs
@@ -265,7 +285,10 @@ The ensemble consistently improves over the XGBoost baseline across most endpoin
 ```
 tox21-toxicity-prediction/
 │
+├── Streamlit_code_1.py         # Interactive dashboard (prediction + EDA + analysis)
 ├── Deployment_pipeline.ipynb   # Main pipeline notebook (all stages)
+├── requirements.txt            # Python dependencies
+├── packages.txt                # System dependencies (for Streamlit Cloud)
 ├── tox21.csv                   # Raw dataset (SMILES + 12 toxicity labels)
 ├── codecuresl.csv              # Pre-computed descriptor columns
 │
@@ -296,7 +319,7 @@ tox21-toxicity-prediction/
 ### Requirements
 
 ```bash
-pip install numpy pandas scikit-learn xgboost lightgbm catboost imbalanced-learn matplotlib seaborn scipy
+pip install numpy pandas scikit-learn xgboost lightgbm catboost imbalanced-learn matplotlib seaborn scipy gdown
 ```
 
 RDKit is best installed via conda:
@@ -309,6 +332,14 @@ conda install -c conda-forge rdkit
 1. Place `tox21.csv` (with SMILES column and all 12 toxicity label columns) in the working directory.
 2. Open `Deployment_pipeline.ipynb` in Jupyter.
 3. Run all cells in order. The notebook is fully self-contained — all feature matrices, models, and result files are generated within the execution.
+
+### Running the Dashboard Locally
+
+```bash
+streamlit run Streamlit_code_1.py
+```
+
+Or visit the hosted version directly: [https://codecure1-new.streamlit.app/](https://codecure1-new.streamlit.app/)
 
 ### Note on the Uploaded Dataset
 
