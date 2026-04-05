@@ -7,7 +7,7 @@
 
 **Try the interactive prediction system here:**
 
-### 👉 [https://codecure1-new.streamlit.app/](https://codecure1-new.streamlit.app/)
+### 👉 https://prediction-toxic1.streamlit.app/
 
 The dashboard is a fully interactive **molecular toxicity prediction and analysis system** built with Streamlit. It includes:
 
